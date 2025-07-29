@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -98,13 +97,13 @@ const Index = () => {
 
   const socialLinks = [
     { 
-      name: "Facebook Page (Neocreb)", 
+      name: "Facebook (Neocreb)", 
       url: "https://www.facebook.com/JeresoftBlog123?mibextid=AEUHqQ",
       icon: Facebook,
       color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
     },
     { 
-      name: "Facebook Page (Softchat)", 
+      name: "Facebook (Softchat)", 
       url: "https://www.facebook.com/share/19ok7vSzKz/?mibextid=LQQJ4d",
       icon: Facebook,
       color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
@@ -141,6 +140,16 @@ const Index = () => {
     { name: "Softchat 2", url: "https://t.me/officialsoftchat" },
     { name: "Miahzworld", url: "https://t.me/softchatHq2" },
     { name: "XallyHq", url: "https://t.me/Yacryptoworld" }
+  ];
+
+  const allSocialPlatforms = [
+    ...socialLinks,
+    ...telegramFolders.map(folder => ({
+      name: folder.name,
+      url: folder.url,
+      icon: MessageCircle,
+      color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
+    }))
   ];
 
   return (
@@ -383,41 +392,30 @@ const Index = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
             </div>
             
-            <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-purple-400 mb-6">Main Platforms</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {socialLinks.map((link, index) => {
-                  const Icon = link.icon;
-                  return (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {allSocialPlatforms.map((platform, index) => {
+                const Icon = platform.icon;
+                return (
+                  <div key={index} className="flex flex-col items-center group">
                     <Button
-                      key={index}
-                      onClick={() => window.open(link.url, '_blank')}
-                      className={`${link.color} border transition-all duration-300 h-auto p-4 justify-start text-left`}
+                      onClick={() => window.open(platform.url, '_blank')}
+                      className={`${platform.color} border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl`}
                       variant="outline"
                     >
-                      <Icon size={20} className="mr-3 flex-shrink-0" />
-                      <span className="truncate">{link.name}</span>
+                      <Icon size={24} />
                     </Button>
-                  );
-                })}
-              </div>
+                    <span className="text-xs text-slate-300 mt-2 text-center leading-tight max-w-[80px] group-hover:text-white transition-colors">
+                      {platform.name}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
-
-            <div>
-              <h3 className="text-2xl font-semibold text-purple-400 mb-6">Telegram Folders</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {telegramFolders.map((folder, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => window.open(folder.url, '_blank')}
-                    className="bg-blue-600/20 border border-blue-500/20 text-blue-300 hover:bg-blue-600 hover:text-white transition-all duration-300 h-auto p-4 justify-start"
-                    variant="outline"
-                  >
-                    <MessageCircle size={16} className="mr-3 flex-shrink-0" />
-                    <span className="truncate">{folder.name}</span>
-                  </Button>
-                ))}
-              </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-slate-400 text-sm">
+                Follow me across all platforms for updates, content, and collaboration opportunities
+              </p>
             </div>
           </section>
 
