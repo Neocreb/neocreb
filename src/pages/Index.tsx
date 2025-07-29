@@ -326,16 +326,19 @@ const Index = () => {
 
             <div>
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Amazon Author Pages</h3>
-              <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {authorPages.map((page, index) => (
-                  <div key={index} className="w-full">
+                  <div key={index} className="flex flex-col items-center group">
                     <Button
                       onClick={() => window.open(page.url, '_blank')}
-                      className="w-full bg-orange-600 hover:bg-orange-700 text-white h-auto py-4 px-4 text-sm break-words"
+                      className="bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl"
+                      variant="outline"
                     >
-                      <BookOpen size={16} className="mr-2 flex-shrink-0" />
-                      <span className="truncate">{page.title}</span>
+                      <BookOpen size={24} />
                     </Button>
+                    <span className="text-xs text-slate-300 mt-2 text-center leading-tight max-w-[120px] group-hover:text-white transition-colors">
+                      {page.title.replace("Author Page", "")}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -394,7 +397,7 @@ const Index = () => {
             
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Main Platforms</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {socialLinks.map((platform, index) => {
                   const Icon = platform.icon;
                   return (
@@ -417,7 +420,7 @@ const Index = () => {
 
             <div>
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Telegram Folders</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 {telegramFolders.map((folder, index) => (
                   <div key={index} className="flex flex-col items-center group">
                     <Button
