@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone } from 'lucide-react';
+import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -97,12 +97,42 @@ const Index = () => {
   ];
 
   const socialLinks = [
-    { name: "Facebook Page (Neocreb)", url: "https://www.facebook.com/JeresoftBlog123?mibextid=AEUHqQ" },
-    { name: "Facebook Page (Softchat)", url: "https://www.facebook.com/share/19ok7vSzKz/?mibextid=LQQJ4d" },
-    { name: "Facebook Group", url: "https://www.facebook.com/share/maHJnMFUQPWvbt6c/?mibextid=WC7FNe" },
-    { name: "Instagram", url: "https://www.instagram.com/miahzworld?igsh=bTYzemdxMmwxNHFz&utm_source=qr" },
-    { name: "WhatsApp Channel", url: "https://whatsapp.com/channel/0029Va9JlpQGOj9hiHFqQK0C" },
-    { name: "YouTube Channel", url: "https://www.youtube.com/@miahzTv" }
+    { 
+      name: "Facebook Page (Neocreb)", 
+      url: "https://www.facebook.com/JeresoftBlog123?mibextid=AEUHqQ",
+      icon: Facebook,
+      color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
+    },
+    { 
+      name: "Facebook Page (Softchat)", 
+      url: "https://www.facebook.com/share/19ok7vSzKz/?mibextid=LQQJ4d",
+      icon: Facebook,
+      color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
+    },
+    { 
+      name: "Facebook Group", 
+      url: "https://www.facebook.com/share/maHJnMFUQPWvbt6c/?mibextid=WC7FNe",
+      icon: Users,
+      color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
+    },
+    { 
+      name: "Instagram", 
+      url: "https://www.instagram.com/miahzworld?igsh=bTYzemdxMmwxNHFz&utm_source=qr",
+      icon: Instagram,
+      color: "bg-pink-600/20 border-pink-500/20 text-pink-300 hover:bg-pink-600"
+    },
+    { 
+      name: "WhatsApp Channel", 
+      url: "https://whatsapp.com/channel/0029Va9JlpQGOj9hiHFqQK0C",
+      icon: MessageCircle,
+      color: "bg-green-600/20 border-green-500/20 text-green-300 hover:bg-green-600"
+    },
+    { 
+      name: "YouTube Channel", 
+      url: "https://www.youtube.com/@miahzTv",
+      icon: Youtube,
+      color: "bg-red-600/20 border-red-500/20 text-red-300 hover:bg-red-600"
+    }
   ];
 
   const telegramFolders = [
@@ -287,19 +317,17 @@ const Index = () => {
 
             <div>
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Amazon Author Pages</h3>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
                 {authorPages.map((page, index) => (
-                  <Card key={index} className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
-                    <CardContent className="p-6">
-                      <Button
-                        onClick={() => window.open(page.url, '_blank')}
-                        className="w-full bg-orange-600 hover:bg-orange-700 text-white"
-                      >
-                        <BookOpen size={16} className="mr-2" />
-                        {page.title}
-                      </Button>
-                    </CardContent>
-                  </Card>
+                  <div key={index} className="w-full">
+                    <Button
+                      onClick={() => window.open(page.url, '_blank')}
+                      className="w-full bg-orange-600 hover:bg-orange-700 text-white h-auto py-4 px-4 text-sm break-words"
+                    >
+                      <BookOpen size={16} className="mr-2 flex-shrink-0" />
+                      <span className="truncate">{page.title}</span>
+                    </Button>
+                  </div>
                 ))}
               </div>
             </div>
@@ -357,33 +385,36 @@ const Index = () => {
             
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Main Platforms</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {socialLinks.map((link, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => window.open(link.url, '_blank')}
-                    className="bg-slate-800/50 border border-purple-500/20 text-slate-300 hover:bg-purple-600 hover:text-white transition-all duration-300 h-auto p-4"
-                    variant="outline"
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    <span className="text-left">{link.name}</span>
-                  </Button>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {socialLinks.map((link, index) => {
+                  const Icon = link.icon;
+                  return (
+                    <Button
+                      key={index}
+                      onClick={() => window.open(link.url, '_blank')}
+                      className={`${link.color} border transition-all duration-300 h-auto p-4 justify-start text-left`}
+                      variant="outline"
+                    >
+                      <Icon size={20} className="mr-3 flex-shrink-0" />
+                      <span className="truncate">{link.name}</span>
+                    </Button>
+                  );
+                })}
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Telegram Folders</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {telegramFolders.map((folder, index) => (
                   <Button
                     key={index}
                     onClick={() => window.open(folder.url, '_blank')}
-                    className="bg-blue-600/20 border border-blue-500/20 text-blue-300 hover:bg-blue-600 hover:text-white transition-all duration-300 h-auto p-4"
+                    className="bg-blue-600/20 border border-blue-500/20 text-blue-300 hover:bg-blue-600 hover:text-white transition-all duration-300 h-auto p-4 justify-start"
                     variant="outline"
                   >
-                    <ExternalLink size={16} className="mr-2" />
-                    {folder.name}
+                    <MessageCircle size={16} className="mr-3 flex-shrink-0" />
+                    <span className="truncate">{folder.name}</span>
                   </Button>
                 ))}
               </div>
