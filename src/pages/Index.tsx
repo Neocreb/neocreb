@@ -392,24 +392,47 @@ const Index = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {allSocialPlatforms.map((platform, index) => {
-                const Icon = platform.icon;
-                return (
+            <div className="mb-8">
+              <h3 className="text-2xl font-semibold text-purple-400 mb-6">Main Platforms</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+                {socialLinks.map((platform, index) => {
+                  const Icon = platform.icon;
+                  return (
+                    <div key={index} className="flex flex-col items-center group">
+                      <Button
+                        onClick={() => window.open(platform.url, '_blank')}
+                        className={`${platform.color} border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl`}
+                        variant="outline"
+                      >
+                        <Icon size={24} />
+                      </Button>
+                      <span className="text-xs text-slate-300 mt-2 text-center leading-tight max-w-[80px] group-hover:text-white transition-colors">
+                        {platform.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-purple-400 mb-6">Telegram Folders</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+                {telegramFolders.map((folder, index) => (
                   <div key={index} className="flex flex-col items-center group">
                     <Button
-                      onClick={() => window.open(platform.url, '_blank')}
-                      className={`${platform.color} border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl`}
+                      onClick={() => window.open(folder.url, '_blank')}
+                      className="bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600 border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl"
                       variant="outline"
                     >
-                      <Icon size={24} />
+                      <MessageCircle size={24} />
                     </Button>
                     <span className="text-xs text-slate-300 mt-2 text-center leading-tight max-w-[80px] group-hover:text-white transition-colors">
-                      {platform.name}
+                      {folder.name}
                     </span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
             
             <div className="text-center mt-8">
