@@ -92,7 +92,48 @@ const Index = () => {
     { id: 'child-dedication', name: 'Child Dedication', designs: [] },
     { id: 'business-flyer', name: 'Business Flyer', designs: [] },
     { id: 'brochures', name: 'Brochures', designs: [] },
-    { id: 'logo-design', name: 'Logo Design', designs: [] }
+    { 
+      id: 'logo-design', 
+      name: 'Logo Design', 
+      designs: [
+        {
+          id: 1,
+          title: "Neocreb Logo",
+          description: "Modern gradient logo design",
+          image: "/lovable-uploads/8e208c84-d9c7-4806-af85-7bd74d52954c.png"
+        },
+        {
+          id: 2,
+          title: "Neocreb Hub",
+          description: "Complete brand identity with tagline",
+          image: "/lovable-uploads/0312fb49-683f-4f28-adf9-a931d73b822e.png"
+        },
+        {
+          id: 3,
+          title: "Graceland Baptist Church",
+          description: "Religious organization logo with symbolic elements",
+          image: "/lovable-uploads/5f6a9977-567a-4885-9b68-ef9152901cbc.png"
+        },
+        {
+          id: 4,
+          title: "Xally Exchange",
+          description: "Crypto exchange platform logo",
+          image: "/lovable-uploads/cbb6a55c-c0b0-4ff5-87e1-6fb877a0d961.png"
+        },
+        {
+          id: 5,
+          title: "Icepaker TV Production",
+          description: "Entertainment production company logo",
+          image: "/lovable-uploads/26c12268-fbed-4863-bdec-ae2ae29b1077.png"
+        },
+        {
+          id: 6,
+          title: "Fh Logo",
+          description: "Stylized circular logo design",
+          image: "/lovable-uploads/79639c80-5f9e-4d19-b31d-354bc15c0564.png"
+        }
+      ] 
+    }
   ];
 
   const authorPages = [
@@ -162,6 +203,8 @@ const Index = () => {
       color: "bg-blue-600/20 border-blue-500/20 text-blue-300 hover:bg-blue-600"
     }))
   ];
+
+  const currentCategory = graphicDesignCategories.find(cat => cat.id === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -354,17 +397,37 @@ const Index = () => {
                 </Select>
               </div>
 
-              <div className="min-h-[200px] flex items-center justify-center bg-slate-800/50 border-purple-500/20 border rounded-lg backdrop-blur-sm">
-                <div className="text-center">
-                  <Palette className="text-purple-400 mx-auto mb-4" size={48} />
-                  <p className="text-slate-300 text-lg">
-                    {graphicDesignCategories.find(cat => cat.id === selectedCategory)?.name} designs coming soon!
-                  </p>
-                  <p className="text-slate-400 text-sm mt-2">
-                    Design samples will be added here
-                  </p>
+              {currentCategory?.designs && currentCategory.designs.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {currentCategory.designs.map((design) => (
+                    <Card key={design.id} className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
+                      <CardContent className="p-4">
+                        <div className="aspect-square mb-4 rounded-lg overflow-hidden">
+                          <img 
+                            src={design.image} 
+                            alt={design.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <h4 className="text-white font-semibold mb-2">{design.title}</h4>
+                        <p className="text-slate-300 text-sm">{design.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
                 </div>
-              </div>
+              ) : (
+                <div className="min-h-[200px] flex items-center justify-center bg-slate-800/50 border-purple-500/20 border rounded-lg backdrop-blur-sm">
+                  <div className="text-center">
+                    <Palette className="text-purple-400 mx-auto mb-4" size={48} />
+                    <p className="text-slate-300 text-lg">
+                      {currentCategory?.name} designs coming soon!
+                    </p>
+                    <p className="text-slate-400 text-sm mt-2">
+                      Design samples will be added here
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="mb-8">
