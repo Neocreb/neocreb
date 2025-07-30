@@ -3,6 +3,7 @@ import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Sma
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -453,19 +454,8 @@ const Index = () => {
             </div>
             
             <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <Mail className="text-purple-400 mx-auto mb-6" size={48} />
-                <h3 className="text-2xl font-semibold text-white mb-4">Let's Work Together</h3>
-                <p className="text-slate-300 text-lg mb-8">
-                  Want to collaborate, request a project, or invite me for a build?
-                </p>
-                <Button
-                  onClick={() => window.open('mailto:Neocrebhub@gmail.com', '_blank')}
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg"
-                >
-                  <Mail size={20} className="mr-2" />
-                  Neocrebhub@gmail.com
-                </Button>
+              <CardContent className="p-8">
+                <ContactForm />
               </CardContent>
             </Card>
           </section>
