@@ -3,11 +3,13 @@ import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Sma
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
+  const [selectedCategory, setSelectedCategory] = useState('church-flyers');
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -83,6 +85,14 @@ const Index = () => {
       url: "https://fametec.blogspot.com/",
       type: "Blog"
     }
+  ];
+
+  const graphicDesignCategories = [
+    { id: 'church-flyers', name: 'Church Flyers', designs: [] },
+    { id: 'child-dedication', name: 'Child Dedication', designs: [] },
+    { id: 'business-flyer', name: 'Business Flyer', designs: [] },
+    { id: 'brochures', name: 'Brochures', designs: [] },
+    { id: 'logo-design', name: 'Logo Design', designs: [] }
   ];
 
   const authorPages = [
@@ -295,7 +305,7 @@ const Index = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
             </div>
             
-            <div className="mb-8">
+            <div className="mb-12">
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Websites & Projects</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {portfolioItems.map((item, index) => (
@@ -325,9 +335,41 @@ const Index = () => {
               </div>
             </div>
 
-            <div>
+            {/* Graphic Design Section */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-semibold text-purple-400 mb-6">Graphic Design</h3>
+              
+              <div className="mb-6">
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger className="w-full max-w-xs bg-slate-800/50 border-purple-500/20 text-white">
+                    <SelectValue placeholder="Select a category" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-slate-800 border-purple-500/20">
+                    {graphicDesignCategories.map((category) => (
+                      <SelectItem key={category.id} value={category.id} className="text-white hover:bg-slate-700">
+                        {category.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="min-h-[200px] flex items-center justify-center bg-slate-800/50 border-purple-500/20 border rounded-lg backdrop-blur-sm">
+                <div className="text-center">
+                  <Palette className="text-purple-400 mx-auto mb-4" size={48} />
+                  <p className="text-slate-300 text-lg">
+                    {graphicDesignCategories.find(cat => cat.id === selectedCategory)?.name} designs coming soon!
+                  </p>
+                  <p className="text-slate-400 text-sm mt-2">
+                    Design samples will be added here
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8">
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Amazon Author Pages</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {authorPages.map((page, index) => (
                   <div key={index} className="flex flex-col items-center group">
                     <Button
