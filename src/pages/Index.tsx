@@ -1,9 +1,11 @@
+
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
@@ -398,22 +400,30 @@ const Index = () => {
               </div>
 
               {currentCategory?.designs && currentCategory.designs.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {currentCategory.designs.map((design) => (
-                    <Card key={design.id} className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
-                      <CardContent className="p-4">
-                        <div className="aspect-square mb-4 rounded-lg overflow-hidden">
-                          <img 
-                            src={design.image} 
-                            alt={design.title}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <h4 className="text-white font-semibold mb-2">{design.title}</h4>
-                        <p className="text-slate-300 text-sm">{design.description}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
+                <div className="relative">
+                  <Carousel className="w-full">
+                    <CarouselContent className="-ml-2 md:-ml-4">
+                      {currentCategory.designs.map((design) => (
+                        <CarouselItem key={design.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                          <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
+                            <CardContent className="p-4">
+                              <div className="aspect-square mb-4 rounded-lg overflow-hidden">
+                                <img 
+                                  src={design.image} 
+                                  alt={design.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <h4 className="text-white font-semibold mb-2">{design.title}</h4>
+                              <p className="text-slate-300 text-sm">{design.description}</p>
+                            </CardContent>
+                          </Card>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700" />
+                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700" />
+                  </Carousel>
                 </div>
               ) : (
                 <div className="min-h-[200px] flex items-center justify-center bg-slate-800/50 border-purple-500/20 border rounded-lg backdrop-blur-sm">
