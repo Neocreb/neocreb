@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -90,7 +91,60 @@ const Index = () => {
   ];
 
   const graphicDesignCategories = [
-    { id: 'church-flyers', name: 'Church Flyers', designs: [] },
+    { 
+      id: 'church-flyers', 
+      name: 'Church Flyers', 
+      designs: [
+        {
+          id: 1,
+          title: "Baptist Student Fellowship Leadership Training Conference",
+          description: "LTC 2025 - Leadership Training Conference with theme 'The Discipled Leader'",
+          image: "/lovable-uploads/80501272-6d2f-4078-ae8a-7c96650d3a4c.png"
+        },
+        {
+          id: 2,
+          title: "BSF ABSU Fellowship Welcome",
+          description: "Welcome to Fellowship flyer with John 13:35 biblical verse",
+          image: "/lovable-uploads/ae95dee1-5eac-49e9-9a79-fcd92d97f469.png"
+        },
+        {
+          id: 3,
+          title: "Valentine's Day Special - Relationship/Love",
+          description: "EBC BSF Valentine's Day special event on relationship and love",
+          image: "/lovable-uploads/3f822ab1-c79f-4a9a-847e-7ce71df7090a.png"
+        },
+        {
+          id: 4,
+          title: "7 Days Spiritual Renewal",
+          description: "First Baptist Church spiritual renewal program with theme 'God of Awesome Wonders'",
+          image: "/lovable-uploads/2d225dbd-30a0-4123-abeb-2b24fa21c44f.png"
+        },
+        {
+          id: 5,
+          title: "BSF EBC Student Outreach 2024",
+          description: "Sunday Service outreach event with worship, praises, and preaching",
+          image: "/lovable-uploads/f6122440-8300-4d01-8aee-6e18d849ed12.png"
+        },
+        {
+          id: 6,
+          title: "Village Outreach - Let There Be Light",
+          description: "Baptist Student Fellowship village outreach with medical services and donations",
+          image: "/lovable-uploads/a54ca528-3d81-4dfc-8405-95a9c15b1165.png"
+        },
+        {
+          id: 7,
+          title: "Transfiguration Retreat 2024 (With Speakers)",
+          description: "Baptist Student Fellowship retreat with theme 'A Spirit Filled Life' featuring guest speakers",
+          image: "/lovable-uploads/e7776126-9998-48e3-b6d9-b14ed08169d8.png"
+        },
+        {
+          id: 8,
+          title: "Transfiguration Retreat 2024 (Clean Version)",
+          description: "Baptist Student Fellowship retreat with theme 'A Spirit Filled Life' - clean design version",
+          image: "/lovable-uploads/a6ea7abf-c97b-4434-b176-bd71ad7d4f3b.png"
+        }
+      ]
+    },
     { id: 'child-dedication', name: 'Child Dedication', designs: [] },
     { 
       id: 'business-flyer', 
