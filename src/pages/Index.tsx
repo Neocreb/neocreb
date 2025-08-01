@@ -400,7 +400,7 @@ const Index = () => {
               </div>
 
               {currentCategory?.designs && currentCategory.designs.length > 0 ? (
-                <div className="relative">
+                <div className="relative px-12">
                   <Carousel className="w-full">
                     <CarouselContent className="-ml-2 md:-ml-4">
                       {currentCategory.designs.map((design) => (
@@ -421,8 +421,8 @@ const Index = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700" />
-                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700" />
+                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -left-6" />
+                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -right-6" />
                   </Carousel>
                 </div>
               ) : (
