@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import ContactForm from '@/components/ContactForm';
 
 const Index = () => {
@@ -446,20 +447,37 @@ const Index = () => {
               </div>
 
               {currentCategory?.designs && currentCategory.designs.length > 0 ? (
-                <div className="relative px-12">
+                <div className="relative px-16">
                   <Carousel className="w-full">
                     <CarouselContent className="-ml-2 md:-ml-4">
                       {currentCategory.designs.map((design) => (
                         <CarouselItem key={design.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                           <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
                             <CardContent className="p-4">
-                              <div className="aspect-[4/5] mb-4 rounded-lg overflow-hidden">
-                                <img 
-                                  src={design.image} 
-                                  alt={design.title}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <div className="aspect-square mb-4 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                                    <img 
+                                      src={design.image} 
+                                      alt={design.title}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-4xl max-h-[90vh] bg-slate-900 border-purple-500/20">
+                                  <div className="flex flex-col items-center">
+                                    <img 
+                                      src={design.image} 
+                                      alt={design.title}
+                                      className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                                    />
+                                    <div className="mt-4 text-center">
+                                      <h4 className="text-white font-semibold text-lg">{design.title}</h4>
+                                      <p className="text-slate-300 mt-2">{design.description}</p>
+                                    </div>
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
                               <h4 className="text-white font-semibold mb-2">{design.title}</h4>
                               <p className="text-slate-300 text-sm">{design.description}</p>
                             </CardContent>
@@ -467,8 +485,8 @@ const Index = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -left-6" />
-                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -right-6" />
+                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -left-12" />
+                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -right-12" />
                   </Carousel>
                 </div>
               ) : (
