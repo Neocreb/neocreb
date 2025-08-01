@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -92,7 +91,54 @@ const Index = () => {
   const graphicDesignCategories = [
     { id: 'church-flyers', name: 'Church Flyers', designs: [] },
     { id: 'child-dedication', name: 'Child Dedication', designs: [] },
-    { id: 'business-flyer', name: 'Business Flyer', designs: [] },
+    { 
+      id: 'business-flyer', 
+      name: 'Business Flyer', 
+      designs: [
+        {
+          id: 1,
+          title: "Holy Music Entertainment Birthday Bash",
+          description: "Event flyer for birthday celebration with music, dance, and comedy",
+          image: "/lovable-uploads/36adb52c-24b8-4826-a8df-f8266964dfdd.png"
+        },
+        {
+          id: 2,
+          title: "Innovate 360 Summit",
+          description: "Tech conference flyer featuring VR technology and networking",
+          image: "/lovable-uploads/a905afce-7aad-49fd-8e00-3c35565ac6f6.png"
+        },
+        {
+          id: 3,
+          title: "W2E Watch to Earn Platform",
+          description: "Modern app promotion flyer for video monetization platform",
+          image: "/lovable-uploads/05a77e20-7479-4363-a445-b832bd0a7b30.png"
+        },
+        {
+          id: 4,
+          title: "Pineleaf Estate Services",
+          description: "Real estate company flyer promoting land ownership opportunities",
+          image: "/lovable-uploads/598c72ac-1e49-4001-b36b-507a76dfebc6.png"
+        },
+        {
+          id: 5,
+          title: "Pineleaf Estate Brochure",
+          description: "Comprehensive real estate services brochure with property showcase",
+          image: "/lovable-uploads/fddf7748-77be-407e-95ec-b3b2cfa3c8c9.png"
+        },
+        {
+          id: 6,
+          title: "Pineleaf Estate with Agent",
+          description: "Personalized real estate flyer featuring realtor Ejikeme Christian",
+          image: "/lovable-uploads/1677a78e-7574-4130-ab7f-5a0af8d20476.png"
+        },
+        {
+          id: 7,
+          title: "Softchat Social Platform",
+          description: "Social media app promotion emphasizing reward-based activities",
+          image: "/lovable-uploads/7525ba7a-1abc-4540-871c-e2dd87fe2be4.png"
+        }
+      ] 
+    },
     { id: 'brochures', name: 'Brochures', designs: [] },
     { 
       id: 'logo-design', 
@@ -407,7 +453,7 @@ const Index = () => {
                         <CarouselItem key={design.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                           <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
                             <CardContent className="p-4">
-                              <div className="aspect-square mb-4 rounded-lg overflow-hidden">
+                              <div className="aspect-[4/5] mb-4 rounded-lg overflow-hidden">
                                 <img 
                                   src={design.image} 
                                   alt={design.title}
