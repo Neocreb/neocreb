@@ -501,11 +501,11 @@ const Index = () => {
               </div>
 
               {currentCategory?.designs && currentCategory.designs.length > 0 ? (
-                <div className="relative px-16">
-                  <Carousel className="w-full">
+                <div className="relative">
+                  <Carousel className="w-full max-w-5xl mx-auto">
                     <CarouselContent className="-ml-2 md:-ml-4">
                       {currentCategory.designs.map((design) => (
-                        <CarouselItem key={design.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                        <CarouselItem key={design.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
                           <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-300">
                             <CardContent className="p-4">
                               <Dialog>
@@ -539,8 +539,8 @@ const Index = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -left-12" />
-                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 -right-12" />
+                    <CarouselPrevious className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 left-2" />
+                    <CarouselNext className="bg-slate-800/80 border-purple-500/20 text-white hover:bg-slate-700 right-2" />
                   </Carousel>
                 </div>
               ) : (
