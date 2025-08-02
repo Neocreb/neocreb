@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, ExternalLink, Mail, Users, Code, Palette, BookOpen, Coins, Smartphone, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -603,15 +602,15 @@ const Index = () => {
                       />
                     </div>
                     
-                    <div className="flex gap-4">
+                    <div className="w-48 flex flex-col gap-3">
                       {authorPages.map((page, index) => (
                         <Button
                           key={index}
                           onClick={() => window.open(page.url, '_blank')}
-                          className="bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 px-6 py-3"
+                          className="w-full bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 py-2 text-sm"
                           variant="outline"
                         >
-                          <BookOpen size={18} className="mr-2" />
+                          <BookOpen size={16} className="mr-2" />
                           {page.title.replace(" Author Page", "")}
                         </Button>
                       ))}
