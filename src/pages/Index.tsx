@@ -589,22 +589,36 @@ const Index = () => {
 
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-purple-400 mb-6">Amazon Author Pages</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {authorPages.map((page, index) => (
-                  <div key={index} className="flex flex-col items-center group">
-                    <Button
-                      onClick={() => window.open(page.url, '_blank')}
-                      className="bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 w-16 h-16 p-0 rounded-2xl shadow-lg hover:shadow-xl hover:scale-110 group-hover:shadow-2xl"
-                      variant="outline"
+              <Card className="bg-slate-800/50 border-purple-500/20 backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <div className="flex flex-col items-center">
+                    <div 
+                      className="w-48 h-48 mb-6 rounded-full overflow-hidden cursor-pointer hover:opacity-80 transition-opacity shadow-xl border-4 border-purple-500/30"
+                      onClick={() => window.open(authorPages[0].url, '_blank')}
                     >
-                      <BookOpen size={24} />
-                    </Button>
-                    <span className="text-xs text-slate-300 mt-2 text-center leading-tight max-w-[120px] group-hover:text-white transition-colors">
-                      {page.title.replace("Author Page", "")}
-                    </span>
+                      <img 
+                        src="/lovable-uploads/ba20804a-5e06-44fc-bafd-caee33cf02b6.png" 
+                        alt="Author Profile"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    <div className="flex gap-4">
+                      {authorPages.map((page, index) => (
+                        <Button
+                          key={index}
+                          onClick={() => window.open(page.url, '_blank')}
+                          className="bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 px-6 py-3"
+                          variant="outline"
+                        >
+                          <BookOpen size={18} className="mr-2" />
+                          {page.title.replace(" Author Page", "")}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </section>
 
