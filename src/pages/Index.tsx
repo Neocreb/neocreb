@@ -145,7 +145,36 @@ const Index = () => {
         }
       ]
     },
-    { id: 'child-dedication', name: 'Child Dedication', designs: [] },
+    { 
+      id: 'child-dedication', 
+      name: 'Child Dedication', 
+      designs: [
+        {
+          id: 1,
+          title: "Precious Goes to Church - Child Dedication",
+          description: "Child dedication invitation for Precious Chimdalu Aziba-Aya Joel by Rev & Mrs Joel Titus",
+          image: "/lovable-uploads/c0cfb49d-9a2d-4a68-a511-843c6bace98b.png"
+        },
+        {
+          id: 2,
+          title: "Baby Portrait - Child Dedication",
+          description: "Beautiful child dedication flyer featuring adorable baby portrait with colorful bow",
+          image: "/lovable-uploads/7d65d00e-524f-4bc0-b33a-44cba5d696fe.png"
+        },
+        {
+          id: 3,
+          title: "Elijah Igwo Elijah - Dedication Ceremony",
+          description: "Baby boy dedication ceremony invitation for Elijah by Mr & Mrs Igwo Daniel Elijah",
+          image: "/lovable-uploads/0bb78ea0-b299-4c03-ae24-562f1738cad3.png"
+        },
+        {
+          id: 4,
+          title: "Princess Victory Goes to Church",
+          description: "Child dedication invitation for Princess Victory by Mr. Mrs. Wisdom Evanson Iboro",
+          image: "/lovable-uploads/f8c62cd8-ee1d-4530-9d28-9664a561a316.png"
+        }
+      ]
+    },
     { 
       id: 'business-flyer', 
       name: 'Business Flyer', 
