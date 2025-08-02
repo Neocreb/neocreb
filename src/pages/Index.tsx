@@ -607,11 +607,11 @@ const Index = () => {
                         <Button
                           key={index}
                           onClick={() => window.open(page.url, '_blank')}
-                          className="w-full bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 py-2 text-sm"
+                          className="w-full bg-orange-600/20 border-orange-500/20 text-orange-300 hover:bg-orange-600 border transition-all duration-300 py-2 text-sm whitespace-nowrap overflow-hidden"
                           variant="outline"
                         >
-                          <BookOpen size={16} className="mr-2" />
-                          {page.title.replace(" Author Page", "")}
+                          <BookOpen size={16} className="mr-2 flex-shrink-0" />
+                          <span className="truncate">Jeremiah Chinedum</span>
                         </Button>
                       ))}
                     </div>
